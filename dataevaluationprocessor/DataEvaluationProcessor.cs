@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace dataevaluationprocessor
 {
-    public class LogFilesProcessor
+    public class DataEvaluationProcessor
     {
         private IDataSourceObjectsGetter _sourceObjectsGetter;
         private IDataSourceObjectProcessor _sourceObjectProcessor;
         private IEvaluatedObjectProcessor _evaluatedObjectProcessor;
 
-        public LogFilesProcessor(IDataSourceObjectsGetter sourceObjectsGetter,
+        public DataEvaluationProcessor(IDataSourceObjectsGetter sourceObjectsGetter,
             IDataSourceObjectProcessor sourceObjectProcessor,
             IEvaluatedObjectProcessor evaluatedObjectProcessor)
         {

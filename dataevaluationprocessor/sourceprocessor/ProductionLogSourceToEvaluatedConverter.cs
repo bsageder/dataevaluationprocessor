@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace dataevaluationprocessor.sourceprocessor
 {
-    public class SortProductionLogByActualPressureProcessor : IDataSourceObjectProcessor
+    public class ProductionLogSourceToEvaluatedConverter : IDataSourceObjectProcessor
     {
         public IEvaluatedObject Process(IDataSourceObject dataSourceObject)
         {
@@ -16,7 +16,6 @@ namespace dataevaluationprocessor.sourceprocessor
             };
             evaluatedObject.MomentValueObjects = sourceObject.MomentValueObjects.Select(x => CreateEvaluated(x)).ToList();
 
-            evaluatedObject.MomentValueObjects.Sort((value1, value2) => value1.ActualPressure.CompareTo(value2.ActualPressure));
             return evaluatedObject;
         }
 

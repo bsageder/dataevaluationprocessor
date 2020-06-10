@@ -5,11 +5,11 @@ using System.Data;
 
 namespace dataevaluationprocessor.evaluatedprocessor
 {
-    public class CreateDataTableProcessor : IEvaluatedObjectProcessor
+    public class CreateDataTableProcessor : BaseProcessorWithFollowUp, IEvaluatedObjectProcessor
     {
         private List<DataTable> _resultList;
 
-        public CreateDataTableProcessor(List<DataTable> resultList)
+        public CreateDataTableProcessor(List<DataTable> resultList, IEvaluatedObjectProcessor followUpProcessor = null) : base(followUpProcessor)
         {
             _resultList = resultList;
         }
@@ -23,6 +23,8 @@ namespace dataevaluationprocessor.evaluatedprocessor
             CreateRows(table, evaluatedLogObject);
 
             _resultList.Add(table);
+
+            _followUpProcessor?.Process(evaluatedLogObject);
         }
 
         private void CreateColumns(DataTable table)

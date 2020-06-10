@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dataevaluationprocessor", "dataevaluationprocessor\dataevaluationprocessor.csproj", "{684D607F-4C29-4891-A1F4-016EE9289263}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{684D607F-4C29-4891-A1F4-016EE9289263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{684D607F-4C29-4891-A1F4-016EE9289263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{684D607F-4C29-4891-A1F4-016EE9289263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{684D607F-4C29-4891-A1F4-016EE9289263}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4776C913-F05C-435F-9329-92ABA3174FB6}
+	EndGlobalSection
+EndGlobal

@@ -1,21 +1,28 @@
 ﻿using dataevaluationprocessor.data.models;
 using dataevaluationprocessor.interfaces;
+using System.Collections.Generic;
 using System.Data;
 
 namespace dataevaluationprocessor.evaluatedprocessor
 {
     public class CreateDataTableProcessor : IEvaluatedObjectProcessor
     {
-        public DataTable Result { get; private set; }
+        private List<DataTable> _resultList;
+
+        public CreateDataTableProcessor(List<DataTable> resultList)
+        {
+            _resultList = resultList;
+        }
 
         public void Process(IEvaluatedObject evaluatedObject)
         {
             ProductionLogEvaluated evaluatedLogObject = evaluatedObject as ProductionLogEvaluated;
 
-            DataTable table = new DataTable();
+            DataTable table = new DataTable(evaluatedLogObject.Designation);
             CreateColumns(table);
             CreateRows(table, evaluatedLogObject);
-            Result = table;
+
+            _resultList.Add(table);
         }
 
         private void CreateColumns(DataTable table)

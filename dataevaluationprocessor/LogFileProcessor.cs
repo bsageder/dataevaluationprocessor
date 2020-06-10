@@ -4,11 +4,23 @@ namespace dataevaluationprocessor
 {
     public class LogFileProcessor
     {
-        public DataTable RunProcess(string fileName)
+        private CsvProductionLogFileParser _parser;
+        private CsvProductionLogSortByActualPressureProcessor _sortProcessor;
+        private CreateDataTableProcessor _createTableProcessor;
+
+        public LogFileProcessor(CsvProductionLogFileParser parser,
+            CsvProductionLogSortByActualPressureProcessor sortProcessor,
+            CreateDataTableProcessor createTableProcessor)
         {
-            var splittedLines = new CsvProductionLogFileParser().Parse(fileName);
-            var evaluatedLines = new CsvProductionLogSortByActualPressureProcessor().Process(splittedLines);
-            return new CreateDataTableProcessor().Process(evaluatedLines);
+            _parser = parser;
+            _sortProcessor = sortProcessor;
+            _createTableProcessor = createTableProcessor;
+        }
+        public DataTable RunProcess()
+        {
+            var splittedLines = _parser.Parse();
+            var evalueatedLines = _sortProcessor.Process(splittedLines);
+            return _createTableProcessor.Process(evalueatedLines);
         }
     }
 }

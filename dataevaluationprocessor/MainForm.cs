@@ -14,7 +14,12 @@ namespace dataevaluationprocessor
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                dataGridView.DataSource = new LogFileProcessor().RunProcess(openFileDialog.FileName);
+                var processor = new LogFileProcessor(
+                    parser: new CsvProductionLogFileParser(openFileDialog.FileName),
+                    sortProcessor: new CsvProductionLogSortByActualPressureProcessor(),
+                    createTableProcessor: new CreateDataTableProcessor());
+
+                dataGridView.DataSource = processor.RunProcess();
             }
         }
     }

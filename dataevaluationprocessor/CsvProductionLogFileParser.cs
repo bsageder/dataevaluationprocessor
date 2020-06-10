@@ -7,9 +7,16 @@ namespace dataevaluationprocessor
 {
     public class CsvProductionLogFileParser
     {
-        public List<string[]> Parse(string csvFileName)
+        private string _csvFileName;
+
+        public CsvProductionLogFileParser(string csvFileName)
         {
-            var csvLines = File.ReadAllLines(csvFileName, Encoding.Default);
+            _csvFileName = csvFileName;
+        }
+
+        public List<string[]> Parse()
+        {
+            var csvLines = File.ReadAllLines(_csvFileName, Encoding.Default);
             var splittedLines = csvLines
                 .Select(x => x.Split(';'))
                 .ToList();

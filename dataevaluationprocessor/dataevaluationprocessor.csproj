@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateDataTableProcessor.cs" />
+    <Compile Include="CsvProductionLogFileParser.cs" />
+    <Compile Include="CsvProductionLogSortByActualPressureProcessor.cs" />
+    <Compile Include="LogFileProcessor.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
